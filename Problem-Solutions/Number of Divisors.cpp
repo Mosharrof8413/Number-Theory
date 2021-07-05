@@ -1,6 +1,6 @@
 
 /*
- Problem Link : https://www.hackerearth.com/problem/algorithm/number-of-divisors-5/
+ Problem Link :  https://www.hackerearth.com/problem/algorithm/number-of-divisors-14/
  */
 
 #include<bits/stdc++.h>
@@ -26,10 +26,10 @@ ll lcm ( ll a, ll b )
 
 #define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
-const int MX=1e6+123;
+const int MX=1e7+123;
 bitset<MX>is_prime;
 vector<ll>primes;
-void sieve(ll n)
+void primeGen(ll n)
 {
     ll sq=sqrt(n);
     for(ll i=3; i<=n; i+=2)is_prime[i]=1;
@@ -54,10 +54,11 @@ ll NOD(ll n)
     ll ans=1;
     for(auto u : primes)
     {
-        ll cnt=0;
+
         if(u*u > n)break;
         if(n%u==0)
         {
+            ll cnt=0;
             while(n%u==0)
             {
                 n/=u;
@@ -74,7 +75,7 @@ int main()
 {
     optimize();
     ll limt=1e6+123;
-    sieve(limt);
+    primeGen(limt);
     ll test;
     cin>>test;
     while(test--)
